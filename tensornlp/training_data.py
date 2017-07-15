@@ -1,4 +1,5 @@
 from functools import reduce
+from collections import OrderedDict
 
 class TextClass(object):
     def __init__(self, name, documents):
@@ -17,7 +18,7 @@ def create_giga_document(test_classes):
 
 
 def calculate_text_classes_coefficients(text_classes):
-    coefficients = {}
+    coefficients = OrderedDict()
     sum_doc_len = reduce(lambda acc, class_: acc + len(class_.documents), text_classes, 0)
     for text_class in text_classes:
         coefficients[text_class.name] = float(len(text_class.documents))/sum_doc_len

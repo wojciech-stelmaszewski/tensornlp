@@ -1,10 +1,11 @@
 import json
+from collections import OrderedDict
 from .training_data import TextClass
 
 
 def get_text_classes_data(data_file, entity_name):
     json_data = json.load(data_file)
-    text_classes = {}
+    text_classes = OrderedDict()
     for expression in json_data["data"]:
         if "entities" in expression:
             for entity in expression["entities"]:
