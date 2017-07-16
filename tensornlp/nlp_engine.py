@@ -75,11 +75,11 @@ class WitNLPResult(object):
         self.text = text
         self.intent = intent["value"] if "value" in intent else ""
         self.intent_confidence = \
-            intent["confidence"] if "confidence" in intent else ""
+            intent["confidence"] if "confidence" in intent else 0
         self.intent_fallback = \
             intent_fallback["value"] if "value" in intent_fallback else ""
         self.intent_fallback_confidence = \
-            intent_fallback["confidence"] if "confidence" in intent_fallback else ""
+            intent_fallback["confidence"] if "confidence" in intent_fallback else 0
         self.elapsed_time = elapsed_time
 
     def __str__(self):
@@ -97,7 +97,7 @@ class WitNLPEngine(object):
         self.sleep_time = 5
 
     def classify(self, text):
-        sleep(self.sleep_time)
+        #sleep(self.sleep_time)
         start_time = timeit.default_timer()
         result = self.wit_client.message(text)
         elapsed_time = timeit.default_timer() - start_time
