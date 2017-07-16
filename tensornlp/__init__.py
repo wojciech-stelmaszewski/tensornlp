@@ -1,4 +1,4 @@
 from .naive_bayes import *
 from .expressions import *
 from .training_data import *
-from .classification import *
+from .nlp_engine import *
